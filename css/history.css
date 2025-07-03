@@ -97,7 +97,7 @@ header .container .banner .logo {
 }
 header .container .banner .logo .logotxt{
   height: 50px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 header .container .banner .logo .logotxt h1 {
@@ -157,9 +157,7 @@ header .banner .nav .nav-list>.sub{
   z-index: 5;
 }
 
-header .banner .nav .nav-list:nth-of-type(4)>.sub{
-  left: -20px;
-}
+
 
 header .banner .nav .nav-list>.sub>a{
   display: block;
