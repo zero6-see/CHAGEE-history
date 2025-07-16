@@ -97,75 +97,81 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const menuNames = document.querySelectorAll('.year');
-//   const cards = document.querySelectorAll('.box > a');
 
-//   function onScroll() {
-//     let currentIndex = -1;
+document.addEventListener('DOMContentLoaded', function () {
+  const menuNames = document.querySelectorAll('.menu-name');
+  const cards = document.querySelectorAll('.box > a');
 
-//     cards.forEach((card, index) => {
-//       const rect = card.getBoundingClientRect();
-//       const triggerLine = window.innerHeight / 2; // 화면의 중간쯤 위치 기준
+  function onScroll() {
+      let currentIndex = -1;
 
-//       // 카드가 화면 중앙 부근에 보일 때
-//       if (rect.top < triggerLine && rect.bottom > triggerLine) {
-//         currentIndex = index;
-//       }
-//     });
+      cards.forEach((card, index) => {
+          const rect = card.getBoundingClientRect();
+          const triggerLine = window.innerHeight / 2; // 화면의 중간쯤 위치 기준
 
-//     // .menu-name에 on 클래스 토글
-//     menuNames.forEach((menu, index) => {
-//       if (index === currentIndex) {
-//         menu.classList.add('on');
-//       } else {
-//         menu.classList.remove('on');
-//       }
-//     });
-//   }
+          // 카드가 화면 중앙 부근에 보일 때
+          if (rect.top < triggerLine && rect.bottom > triggerLine) {
+              currentIndex = index;
+          }
+      });
 
-//   window.addEventListener('scroll', onScroll);
-//   onScroll(); // 처음 로딩 시 한 번 실행
-// });
+      // .menu-name에 on 클래스 토글
+      menuNames.forEach((menu, index) => {
+          if (index === currentIndex) {
+              menu.classList.add('on');
+          } else {
+              menu.classList.remove('on');
+          }
+      });
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // 처음 로딩 시 한 번 실행
+});
 
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const menuLinks = document.querySelectorAll('.year a');
-//   const cards = document.querySelectorAll('.box > a');
+document.addEventListener('DOMContentLoaded', function () {
+  const menuLinks = document.querySelectorAll('.menu-name a');
+  const cards = document.querySelectorAll('.box > a');
 
-//   menuLinks.forEach((link, index) => {
-//     link.addEventListener('click', function (e) {
-//       e.preventDefault(); // 링크 기본 동작 막기
+  menuLinks.forEach((link, index) => {
+      link.addEventListener('click', function (e) {
+          e.preventDefault(); // 링크 기본 동작 막기
 
-//       // 대상 카드 요소 위치로 스크롤 이동
-//       const targetCard = cards[index];
-//       const offsetTop = targetCard.getBoundingClientRect().top + window.scrollY;
+          // 대상 카드 요소 위치로 스크롤 이동
+          const targetCard = cards[index];
+          const offsetTop = targetCard.getBoundingClientRect().top + window.scrollY;
 
-//       window.scrollTo({
-//         top: offsetTop - 100, // 원하는 여백만큼 조정 (ex: 고정 메뉴 높이 고려)
-//         behavior: 'smooth'
-//       });
-//     });
-//   });
-// });
+          window.scrollTo({
+              top: offsetTop - 100, // 원하는 여백만큼 조정 (ex: 고정 메뉴 높이 고려)
+              behavior: 'smooth'
+          });
+      });
+  });
+});
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const menuList = document.querySelector('.year-list');
-//   const triggerTarget = document.querySelector('.box > a'); // 첫 번째 카드 요소
+document.addEventListener('DOMContentLoaded', function () {
+  const menuList = document.querySelector('.menu-list');
+  const triggerTarget = document.querySelector('.box > a'); // 첫 번째 카드 요소
 
-//   function toggleFixedMenu() {
-//     const triggerTop = triggerTarget.getBoundingClientRect().top;
+  function toggleFixedMenu() {
+      const triggerTop = triggerTarget.getBoundingClientRect().top;
 
-//     if (triggerTop <= 100) { // 100px 이상 위로 올라왔을 때
-//       menuList.classList.add('fixed');
-//     } else {
-//       menuList.classList.remove('fixed');
-//     }
-//   }
+      if (triggerTop <= 100) { // 100px 이상 위로 올라왔을 때
+          menuList.classList.add('fixed');
+      } else {
+          menuList.classList.remove('fixed');
+      }
+  }
 
-//   window.addEventListener('scroll', toggleFixedMenu);
-//   toggleFixedMenu(); // 처음 로딩 시 실행
-// });
+  window.addEventListener('scroll', toggleFixedMenu);
+  toggleFixedMenu(); // 처음 로딩 시 실행
+});
+
+
+mobileStop.addEventListener("click", reset);
+
+window.dispatchEvent(new Event("resize"));
 
 
 
@@ -193,185 +199,3 @@ topBtn.addEventListener('click', () => {
 });
 
 
-
-const ani1 = gsap.timeline();
-
-ani1.fromTo(".list1 .img #i1", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
-  .fromTo(".list1 .img #i2", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
-
-
-ScrollTrigger.create({
-  animation: ani1,
-  trigger: ".list1",
-  start: "top 5% ",
-  end: "top 60%",
-  scrub: true,
-  // pin:true,
-  anticipatePin: 1,
-  markers: false
-})
-
-const ani2 = gsap.timeline();
-
-ani2.fromTo(".list2 .img #i1", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
-  .fromTo(".list2 .img #i2", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
-
-
-ScrollTrigger.create({
-  animation: ani2,
-  trigger: ".list2",
-  start: "top 5% ",
-  end: "top 60%",
-  scrub: true,
-  // pin:true,
-  anticipatePin: 1,
-  markers: false
-})
-
-const ani3 = gsap.timeline();
-
-ani3.fromTo(".list3 .img img", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
- 
-
-
-ScrollTrigger.create({
-  animation: ani3,
-  trigger: ".list3",
-  start: "top 5% ",
-  end: "top 60%",
-  scrub: true,
-  // pin:true,
-  anticipatePin: 1,
-  markers: true
-})
-
-const ani4 = gsap.timeline();
-
-ani4.fromTo(".list4 .img img", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
- 
-
-
-ScrollTrigger.create({
-  animation: ani4,
-  trigger: ".list4",
-  start: "top 5% ",
-  end: "top 60%",
-  scrub: true,
-  // pin:true,
-  anticipatePin: 1,
-  markers: false
-})
-
-const ani5 = gsap.timeline();
-
-ani5.fromTo(".list5 .img img", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
- 
-
-
-ScrollTrigger.create({
-  animation: ani5,
-  trigger: ".list5",
-  start: "top 5% ",
-  end: "top 60%",
-  scrub: true,
-  // pin:true,
-  anticipatePin: 1,
-  markers: false
-})
-
-const ani6 = gsap.timeline();
-
-ani6.fromTo(".list6 .img img", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
- 
-
-
-ScrollTrigger.create({
-  animation: ani6,
-  trigger: ".list6",
-  start: "top 5% ",
-  end: "top 60%",
-  scrub: true,
-  // pin:true,
-  anticipatePin: 1,
-  markers: false
-})
-
-const ani7 = gsap.timeline();
-
-ani7.fromTo(".list7 .img img", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
- 
-
-
-ScrollTrigger.create({
-  animation: ani7,
-  trigger: ".list7",
-  start: "top 5% ",
-  end: "top 60%",
-  scrub: true,
-  // pin:true,
-  anticipatePin: 1,
-  markers: false
-})
-
-const ani8 = gsap.timeline();
-
-ani8.fromTo(".list8 .img img", { height: "0", opacity: 0 }, { height: "60vh", opacity: 1 }, "text")
- 
-
-
-ScrollTrigger.create({
-  animation: ani8,
-  trigger: ".list8",
-  start: "top 5% ",
-  end: "top 60%",
-  scrub: true,
-  // pin:true,
-  anticipatePin: 1,
-  markers: false
-})
-
-
-
-
-
-  // const video = document.getElementById("video1");
-  // const playStopIcon = document.getElementById("playStopIcon");
-  // const muteIcon = document.getElementById("muteIcon");
-
-  // // 버튼 자체를 숨기려면 이거들을 감싸는 컨테이너
-  // const buttonContainer = document.querySelector(".button-container");
-
-  // // 재생 중일 때만 버튼 보이기
-  // function updateButtonVisibility() {
-  //   if (video.paused) {
-  //     buttonContainer.style.display = "none";
-  //   } else {
-  //     buttonContainer.style.display = "block";
-  //   }
-  // }
-
-  // // 처음 페이지가 로드됐을 때 한 번 실행
-  // updateButtonVisibility();
-
-  // // 재생/일시정지 상태가 바뀔 때마다 실행
-  // video.addEventListener("play", updateButtonVisibility);
-  // video.addEventListener("pause", updateButtonVisibility);
-
-  // // ▶️ 재생/정지 토글 함수
-  // function togglePlayStop() {
-  //   if (video.paused) {
-  //     video.play();
-  //   } else {
-  //     video.pause();
-  //   }
-  //   updateButtonVisibility();
-  // }
-
-  // // 🔇 음소거/음소거 해제 토글 함수
-  // function toggleMute() {
-  //   video.muted = !video.muted;
-  //   // 아이콘 변경
-  //   muteIcon.className = video.muted
-  //     ? "fa-solid fa-volume-xmark"
-  //     : "fa-solid fa-volume-high";
-  // }

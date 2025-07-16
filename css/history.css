@@ -38,6 +38,7 @@ li {
   list-style: none;
 }
 
+
 a {
   text-decoration: none;
 }
@@ -451,153 +452,151 @@ main {
   height: auto;
   padding: 12.4rem 0;
   display: grid;
-  grid-template-columns: 0.5fr 3fr;
+  grid-template-columns: 1fr 3fr;
 }
 
-#body #num {
-  padding: 0 30px 0 150px;
+#body .container {
+  float: left;
+  width: 400px;
+  padding-left: 100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: 2rem;
+  align-items: flex-start;
+  position: relative;
 }
 
-#body #num .year-list a {
-  display: block;
-  width: 50px;
-  font-size: var(--font-m-md);
-  color: var(--menu-hcl);
-  margin-bottom: 10px;
+#body .container .menu-list {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  transition: all ease 0.2s;
+}
+
+#body .container .menu-list.fixed {
+  position: fixed;
+  top: 10%;
 }
 
 
-#body #num .year-list .year.on a {
+#body .container .menu-list .menu-item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: 1.1rem;
+  align-items: flex-start;
+}
+
+#body .container .menu-list .menu-item .menu-name p {
+  color: var(--menu-cl);
+  font-size: var(--font-lg);
+  padding-bottom: 5px;
+}
+
+#body .container .menu-list .menu-item .menu-name.on p {
   border-bottom: 2px solid var(--menu-hcl);
 }
 
-#body .year-card {
-  position: relative;
+#body .ex {
+  width: 100%;
+  height: auto;
+}
+
+#body .ex .box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  row-gap: 24rem;
-  text-align: center;
+  row-gap: 100px;
+  align-items: center;
+  padding-right: 100px;
+  padding-left: 20px;
 }
-#body .year-card .list1,
-#body .year-card .list2,
-#body .year-card .list3,
-#body .year-card .list4,
-#body .year-card .list5,
-#body .year-card .list6,
-#body .year-card .list7,
-#body .year-card .list8{
+
+#body .ex .box a {
   width: 100%;
-  height: 80vh;
-  border: 1px solid #ddd;
-}
-#body .year-card .list1 a,
-#body .year-card .list2 a{
-  width: 100%;
-  height: 80vh;
+  height: 100%;
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  margin-bottom: 100px;
-}
-#body .year-card .list3 a,
-#body .year-card .list4 a,
-#body .year-card .list5 a,
-#body .year-card .list6 a,
-#body .year-card .list7 a,
-#body .year-card .list8 a{
-  width: 100%;
-  height: 80vh;
-  position: relative;
-  display: flex;
-  align-items:center;
-  justify-content: center;
-}
-#body .year-card .list3 a .img img,
-#body .year-card .list4 a .img img,
-#body .year-card .list5 a .img img,
-#body .year-card .list6 a .img img,
-#body .year-card .list7 a .img img,
-#body .year-card .list8 a .img img{
-  width: 45vw;
-  height:0;
-  transition: height 0.5s;
-  margin-bottom: 20px;
 }
 
-
-#body .year-card .list1 a .img,
-#body .year-card .list2 a .img{
+#body .ex .box a .card .overflow {
+  object-fit: cover;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
-  gap: 20px;
 }
-#body .year-card .list1 a .img #i1,
-#body .year-card .list2 a .img #i1{
-  height: 0;
-  transition: height 0.5s;
-}
-#body .year-card .list1 a .img #i2,
-#body .year-card .list2 a .img #i2{
-  height: 0;
-  margin-top: 50px;
-  transition: height 0.5s;
-}
-#body .year-card .list1 a .txt,
-#body .year-card .list2 a .txt{
+#body .ex .box a:nth-child(1) .card p,
+#body .ex .box a:nth-child(2) .card p{
+  display: block;
   position: absolute;
-  top: 25%;
-}
-#body .year-card .list1 a  button,
-#body .year-card .list2 a button{
-  position: absolute;
-  bottom: 0;
-}
-
-#body .year-card .list3 a .txt,
-#body .year-card .list4 a .txt,
-#body .year-card .list5 a .txt,
-#body .year-card .list6 a .txt,
-#body .year-card .list7 a .txt,
-#body .year-card .list8 a .txt{
-  position: absolute;
-  top: 25%;
-}
-#body .year-card .list1 a  button,
-#body .year-card .list2 a  button,
-#body .year-card .list3 a  button,
-#body .year-card .list4 a  button,
-#body .year-card .list5 a  button,
-#body .year-card .list6 a  button,
-#body .year-card .list7 a  button,
-#body .year-card .list8 a  button{
-  position: absolute;
-  bottom: 0;
-}
-#body .year-card .list1 a .txt p,
-#body .year-card .list2 a .txt p,
-#body .year-card .list3 a .txt p,
-#body .year-card .list4 a .txt p,
-#body .year-card .list5 a .txt p,
-#body .year-card .list6 a .txt p,
-#body .year-card .list7 a .txt p,
-#body .year-card .list8 a .txt p{
   font-size: 180px;
   font-weight: bold;
-  color: var(--bg-button);
+  color: #fff;
+  top: 30%;
+  left: 45%;
 }
-#body .year-card .list1 a  button,
-#body .year-card .list2 a  button,
-#body .year-card .list3 a  button,
-#body .year-card .list4 a  button,
-#body .year-card .list5 a  button,
-#body .year-card .list6 a  button,
-#body .year-card .list7 a  button,
-#body .year-card .list8 a  button{
-  font-size: 18px;
-  border: none;
-  background-color: transparent;
+#body .ex .box a:not(:nth-child(1)) .card p,
+#body .ex .box a:not(:nth-child(2)) .card p{
+  position: absolute;
+  font-size: 180px;
+  font-weight: bold;
+  color: #fff;
+  top: 35%;
+  left: 40%;
+}
+
+#body .ex .box a .card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transition: all ease 0.5s;
+}
+
+#body .ex .box a .card .overflow p {
+  position: absolute;
+  top: 5%;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 1.1rem 2rem;
+  min-width: 11rem;
+  color: var(--bg-button);
+  font-weight: 700;
+}
+
+#body .ex .box a .bottom {
+  width: 100%;
+  position: absolute;
+  bottom: -50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  text-align: center;
+}
+
+#body .ex .box a .bottom .btn-part .btn p {
+  width: 10%;
+  margin: auto;
+  font-size: 20px;
+  color: #111;
+  min-width: 5rem;
+}
+
+#body .ex .box a .bottom .txt {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--bg-button);
+  font-size: 0.8rem;
+  padding: 20px 60px;
+}
+
+/*hover*/
+#body .ex .box a:hover .card .overflow img {
+  transform: scale(1.1);
+}
+
+#body .ex .box a .bottom .btn-part .btn:hover p {
+  background-color: var(--bg-button);
+  color: var(--menu-hcl);
 }
 
 
